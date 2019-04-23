@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "310378453503",
+    "firebase_url": "https://makkalivevideo-feb08.firebaseio.com",
+    "project_id": "makkalivevideo-feb08",
+    "storage_bucket": "makkalivevideo-feb08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310378453503:android:6d2781f367ce138c",
+        "android_client_info": {
+          "package_name": "apextechies.livestreemingvideo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "310378453503-lcekrc307lca298ap03og7444sk333og.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI_VJETIQKtYFH0M-y7G55CmOB6W4EfU4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "310378453503-lcekrc307lca298ap03og7444sk333og.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
