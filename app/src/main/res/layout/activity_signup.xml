@@ -42,7 +42,9 @@
                 android:id="@+id/input_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_name"/>
+                android:hint="@string/hint_mobile"
+                android:clickable="false"
+                android:focusable="false"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -59,7 +61,7 @@
                 android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_name"/>
+                android:hint="@string/hint_emailid"/>
 
     </android.support.design.widget.TextInputLayout>
 

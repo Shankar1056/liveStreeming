@@ -73,7 +73,7 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
     @Override
     public void signup(String name, String email, String mobile, final DownlodableCallback<UserModel> callback) {
-        createRetrofitService().userSignup(name, email, mobile).enqueue(
+        createRetrofitService().userSignup(mobile, name, email).enqueue(
                 new Callback<UserModel>() {
                     @Override
                     public void onResponse(@NonNull Call<UserModel> call, @NonNull final Response<UserModel> response) {
@@ -98,32 +98,6 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
         );
     }
 
-    @Override
-    public void category(final DownlodableCallback<CategoryModel> callback) {
-        createRetrofitService().getCategory().enqueue(
-                new Callback<CategoryModel>() {
-                    @Override
-                    public void onResponse(@NonNull Call<CategoryModel> call, @NonNull final Response<CategoryModel> response) {
-                        if (response.isSuccessful()) {
-                            CategoryModel mobileRegisterPojo = response.body();
-                            callback.onSuccess(mobileRegisterPojo);
-
-                        } else {
-                            if (response.code() == 401) {
-                                callback.onUnauthorized(response.code());
-                            } else {
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(@NonNull Call<CategoryModel> call, @NonNull Throwable t) {
-                        Log.d("Result", "t" + t.getMessage());
-                        callback.onFailure(t.getMessage());
-                    }
-                }
-        );
-    }
 
     @Override
     public void video(final DownlodableCallback<VideoModel> callback) {

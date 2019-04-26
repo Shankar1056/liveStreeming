@@ -61,10 +61,10 @@
     <string name="hint_password">Password</string>
     <string name="desc_firebase_lockup">Firebase logo and name</string>
     <string name="auth_failed">Authentication failed</string>
-    <string name="start_phone_auth">Start</string>
+    <string name="start_phone_auth">get OTP</string>
     <string name="verify_phone_auth">Verify</string>
     <string name="resend_phone_auth">Resend</string>
-    <string name="hint_phone_number">Phone Number</string>
+    <string name="hint_phone_number">10 digit Phone Number</string>
     <string name="hint_verification_code">Verification Code</string>
     <string name="status_code_sent">Code Sent</string>
     <string name="status_verification_failed">Verification failed</string>
@@ -103,5 +103,7 @@
 
     <string name="id_fmt">User ID: %s</string>
     <string name="email_fmt">Email: %s</string>
+    <string name="hint_mobile">Enter mobile number</string>
+    <string name="hint_emailid">Enter email id</string>
 
 </resources>

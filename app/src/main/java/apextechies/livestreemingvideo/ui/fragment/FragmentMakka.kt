@@ -30,8 +30,12 @@ public class FragmentMakka(val makkaList: ArrayList<VideoDataModel>?) : Fragment
         videoRV.adapter = makkaList?.let {
             VideoListAdapter(it, object : OnItemClickListener {
                 override fun onClick(pos: Int) {
-                    startActivity(Intent(activity, VideoStreamActivity::class.java).
-                    putExtra("videoId", makkaList[pos].video_url_id))
+                    startActivity(
+                        Intent(activity, VideoStreamActivity::class.java).putExtra(
+                            "videoId",
+                            makkaList[pos].video_url_id
+                        ).putParcelableArrayListExtra("list", makkaList)
+                    )
                 }
             })
 

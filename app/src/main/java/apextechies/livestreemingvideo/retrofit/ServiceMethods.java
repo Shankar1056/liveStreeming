@@ -12,7 +12,6 @@ import apextechies.livestreemingvideo.ui.model.CategoryModel;
 public interface ServiceMethods {
     void login(String mobile, DownlodableCallback<UserModel> callback);
     void signup(String name, String email, String mobile, DownlodableCallback<UserModel> callback);
-    void category(DownlodableCallback<CategoryModel> callback);
     void video(DownlodableCallback<VideoModel> callback);
 
 

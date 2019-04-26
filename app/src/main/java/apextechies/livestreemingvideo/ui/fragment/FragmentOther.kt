@@ -29,8 +29,12 @@ class FragmentOther  constructor(val otherList: ArrayList<VideoDataModel>?) : Fr
         videoRV.adapter = otherList?.let {
             VideoListAdapter(it, object : OnItemClickListener {
                 override fun onClick(pos: Int) {
-                    startActivity(Intent(activity, VideoStreamActivity::class.java).
-                        putExtra("videoId", otherList[pos].video_url_id))
+                    startActivity(
+                        Intent(activity, VideoStreamActivity::class.java).putExtra(
+                            "videoId",
+                            otherList[pos].video_url_id
+                        ).putParcelableArrayListExtra("list", otherList)
+                    )
                 }
             })
 

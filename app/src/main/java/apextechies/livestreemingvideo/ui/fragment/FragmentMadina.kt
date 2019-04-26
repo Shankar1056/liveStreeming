@@ -29,8 +29,12 @@ class FragmentMadina constructor(val madinaList: ArrayList<VideoDataModel>?) : F
         videoRV.adapter = madinaList?.let {
             VideoListAdapter(it, object : OnItemClickListener {
                 override fun onClick(pos: Int) {
-                    startActivity(Intent(activity, VideoStreamActivity::class.java).
-                        putExtra("videoId", madinaList[pos].video_url_id))
+                    startActivity(
+                        Intent(activity, VideoStreamActivity::class.java).putExtra(
+                            "videoId",
+                            madinaList[pos].video_url_id
+                        ).putParcelableArrayListExtra("list", madinaList)
+                    )
                 }
             })
 

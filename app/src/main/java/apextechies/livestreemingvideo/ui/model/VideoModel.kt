@@ -1,6 +1,8 @@
 package apextechies.livestreemingvideo.ui.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 class VideoModel {
     @SerializedName("status")
@@ -11,6 +13,7 @@ class VideoModel {
     var data: ArrayList<VideoDataModel>? = null
 }
 
+@Parcelize
 class VideoDataModel(
     @SerializedName("id")
     var id: String? = null,
@@ -24,4 +27,4 @@ class VideoDataModel(
     var created_at: String? = null,
     @SerializedName("status")
     var status: String? = null
-)
+) : Parcelable

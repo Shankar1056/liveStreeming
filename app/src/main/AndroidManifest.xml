@@ -6,30 +6,28 @@
 
     <application
             android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@drawable/logo"
             android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
+            android:roundIcon="@drawable/logo"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
                 android:name="apextechies.livestreemingvideo.ui.Login"
                 android:label="@string/app_name"
                 android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
-        <activity android:name=".ui.VideoCategoryActivity">
-
-        </activity>
-        <activity android:name=".ui.VideoListActivity"/>
-        <activity android:name=".VideoStreamActivity"/>
-        <activity android:name=".MainActivity"
-        android:theme="@style/MyMaterialTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+
+
+        <activity android:name=".VideoStreamActivity"/>
+        <activity android:name=".ui.SignUp"/>
+        <activity android:name=".MainActivity"
+        android:theme="@style/MyMaterialTheme">
+
         </activity>
     </application>
 

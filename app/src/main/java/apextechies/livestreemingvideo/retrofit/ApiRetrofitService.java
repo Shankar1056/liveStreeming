@@ -24,9 +24,6 @@ public interface ApiRetrofitService {
     @FormUrlEncoded
     Call<UserModel> userSignup(@Field("mobile") String mobile, @Field("name") String name, @Field("email") String email);
 
-    @GET(ApiUrl.VIDEOCATEGORY)
-    Call<CategoryModel> getCategory();
-
     @GET(ApiUrl.VIDEOLIST)
     Call<VideoModel> getVideo();
 
