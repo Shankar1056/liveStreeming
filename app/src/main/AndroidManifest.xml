@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="apextechies.livestreemingvideo">
+          package="apextechies.makkahmadinalive">
 
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+            android:name="apextechies.MyApplication"
             android:allowBackup="true"
             android:icon="@drawable/logo"
             android:label="@string/app_name"
@@ -12,7 +15,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name="apextechies.livestreemingvideo.ui.Login"
+                android:name="apextechies.makkahmadinalive.SplashScreen"
                 android:label="@string/app_name"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -23,12 +26,17 @@
         </activity>
 
 
-        <activity android:name=".VideoStreamActivity"/>
-        <activity android:name=".ui.SignUp"/>
-        <activity android:name=".MainActivity"
+        <activity android:name="apextechies.makkahmadinalive.VideoStreamActivity"/>
+        <activity android:name="apextechies.makkahmadinalive.ui.SignUp"/>
+        <activity android:name="apextechies.makkahmadinalive.MainActivity"
         android:theme="@style/MyMaterialTheme">
 
         </activity>
+
+        <meta-data
+                android:name="com.google.android.gms.ads.APPLICATION_ID"
+                android:value="@string/admob_app_id"/>
+
     </application>
 
 </manifest>
