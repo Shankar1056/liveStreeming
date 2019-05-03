@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import apextechies.makkahmadinalive.ui.model.NotificationModel;
 import apextechies.makkahmadinalive.ui.model.UserModel;
 import apextechies.makkahmadinalive.ui.model.VideoModel;
 import okhttp3.OkHttpClient;
@@ -119,6 +120,33 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
                     @Override
                     public void onFailure(@NonNull Call<VideoModel> call, @NonNull Throwable t) {
                         Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void notification(String id, String category, String notification, String operation, final DownlodableCallback<NotificationModel> callback) {
+        createRetrofitService().getNotification(id, category, notification, operation).enqueue(
+                new Callback<NotificationModel>() {
+                    @Override
+                    public void onResponse(Call<NotificationModel> call, Response<NotificationModel> response) {
+
+                        if (response.isSuccessful()) {
+                            NotificationModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<NotificationModel> call, Throwable t) {
                         callback.onFailure(t.getMessage());
                     }
                 }

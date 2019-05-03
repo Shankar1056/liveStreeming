@@ -8,4 +8,5 @@ public class ApiUrl {
     public static final String USER_SIGNUP = "user_signup";
     public static final String VIDEOCATEGORY = "video_category";
     public static final String VIDEOLIST = "video_list";
+    public static final String NOTIFICATION = "app_notification";
 }

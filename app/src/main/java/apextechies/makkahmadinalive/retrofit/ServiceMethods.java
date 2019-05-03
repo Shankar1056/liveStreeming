@@ -1,6 +1,7 @@
 package apextechies.makkahmadinalive.retrofit;
 
 
+import apextechies.makkahmadinalive.ui.model.NotificationModel;
 import apextechies.makkahmadinalive.ui.model.UserModel;
 import apextechies.makkahmadinalive.ui.model.VideoModel;
 
@@ -12,6 +13,7 @@ public interface ServiceMethods {
     void login(String mobile, DownlodableCallback<UserModel> callback);
     void signup(String name, String email, String mobile, DownlodableCallback<UserModel> callback);
     void video(DownlodableCallback<VideoModel> callback);
+    void notification(String id, String category, String notification, String operation, DownlodableCallback<NotificationModel> callback);
 
 
 }

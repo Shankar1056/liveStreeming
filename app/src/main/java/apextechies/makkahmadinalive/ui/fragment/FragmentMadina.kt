@@ -16,7 +16,7 @@ import apextechies.makkahmadinalive.ui.model.VideoDataModel
 import kotlinx.android.synthetic.main.activiy_categoryvideo.*
 
 @SuppressLint("ValidFragment")
-class FragmentMadina constructor(val madinaList: ArrayList<VideoDataModel>?) : Fragment() {
+class FragmentMadina (val madinaList: ArrayList<VideoDataModel>?) : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragmentmakka, container, false)

@@ -1,6 +1,7 @@
 package apextechies.makkahmadinalive.retrofit;
 
 
+import apextechies.makkahmadinalive.ui.model.NotificationModel;
 import apextechies.makkahmadinalive.ui.model.UserModel;
 import apextechies.makkahmadinalive.ui.model.VideoModel;
 import retrofit2.Call;
@@ -26,5 +27,11 @@ public interface ApiRetrofitService {
     @GET(ApiUrl.VIDEOLIST)
     Call<VideoModel> getVideo();
 
+    @POST(ApiUrl.NOTIFICATION)
+    @FormUrlEncoded
+    Call<NotificationModel> getNotification(@Field("id") String id,
+                                            @Field("category") String category,
+                                            @Field("notification") String notification,
+                                            @Field("operation") String operation);
 
 }

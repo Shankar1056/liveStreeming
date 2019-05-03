@@ -19,13 +19,15 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import apextechies.makkahmadinalive.Util.Config
 import apextechies.makkahmadinalive.retrofit.DownlodableCallback
 import apextechies.makkahmadinalive.retrofit.RetrofitDataProvider
-import apextechies.makkahmadinalive.ui.Login
 import apextechies.makkahmadinalive.ui.fragment.FragmentMadina
 import apextechies.makkahmadinalive.ui.fragment.FragmentMakka
 import apextechies.makkahmadinalive.ui.fragment.FragmentOther
+import apextechies.makkahmadinalive.ui.model.NotificationDataModel
+import apextechies.makkahmadinalive.ui.model.NotificationModel
 import apextechies.makkahmadinalive.ui.model.VideoDataModel
 import apextechies.makkahmadinalive.ui.model.VideoModel
 import com.google.android.gms.ads.AdRequest
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     var makkaList: ArrayList<VideoDataModel>? = null
     var madinaList: ArrayList<VideoDataModel>? = null
     var otherList: ArrayList<VideoDataModel>? = null
+    var notificationList: ArrayList<NotificationDataModel>? = null
     private lateinit var auth: FirebaseAuth
     private lateinit var adRequest: AdRequest
     private lateinit var mInterstitialAd: InterstitialAd
@@ -67,6 +70,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         otherList = ArrayList()
 
         getVideList()
+        getNotification()
         auth = FirebaseAuth.getInstance()
 
 
@@ -74,6 +78,34 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         loadBannerAds()
         loadInterstitleAds()
 
+        notificationLayout.setOnClickListener {
+            startActivity(Intent(this@MainActivity, NotificationActivity::class.java).
+            putParcelableArrayListExtra("list", notificationList))
+        }
+    }
+
+    private fun getNotification() {
+        retrofitDataProvider!!.notification("", "", "", "fetch", object : DownlodableCallback<NotificationModel> {
+            override fun onSuccess(result: NotificationModel?) {
+
+                if (result!!.status.equals(Config.TRUE)) {
+                    if (result.data!!.size>0) {
+                        notificationList = result.data
+                        notificationText.text = result.data!!.size.toString()
+                        notificationLayout.visibility = View.VISIBLE
+                    } else{
+                        notificationLayout.visibility = View.GONE
+                    }
+                }
+            }
+
+            override fun onFailure(error: String?) {
+            }
+
+            override fun onUnauthorized(errorNumber: Int) {
+            }
+
+        })
     }
 
     private fun loadInterstitleAds() {
@@ -196,7 +228,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 sendIntent.action = Intent.ACTION_SEND
                 sendIntent.putExtra(
                     Intent.EXTRA_TEXT,
-                    "https://play.google.com/store/apps/details?id=apextechies.makkahmadinalive&hl=en"
+                    "https://play.google.com/store/apps/details?id=apextechies.makkahmadinalive"
                 )
                 sendIntent.type = "text/plain"
                 startActivity(sendIntent)
@@ -208,15 +240,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_rate -> {
                 val intent = Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://play.google.com/store/apps/details?id=apextechies.makkahmadinalive&hl=en")
+                    Uri.parse("https://play.google.com/store/apps/details?id=apextechies.makkahmadinalive")
                 )
                 startActivity(intent)
             }
-            R.id.nav_logout -> {
-                auth.signOut()
-                startActivity(Intent(this@MainActivity, Login::class.java))
-                finish()
-            }
+            /* R.id.nav_logout -> {
+                 auth.signOut()
+                 startActivity(Intent(this@MainActivity, Login::class.java))
+                 finish()
+             }*/
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)

@@ -3,8 +3,8 @@
           package="apextechies.makkahmadinalive">
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
             android:name="apextechies.MyApplication"
@@ -29,13 +29,20 @@
         <activity android:name="apextechies.makkahmadinalive.VideoStreamActivity"/>
         <activity android:name="apextechies.makkahmadinalive.ui.SignUp"/>
         <activity android:name="apextechies.makkahmadinalive.MainActivity"
-        android:theme="@style/MyMaterialTheme">
+                  android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
+        <activity android:name=".NotificationActivity"
+                  android:theme="@style/AppTheme.NoActionBar"
+                  android:label="Notification"/>
+        <activity android:name=".NotificationDetailsActivity"
+                  android:theme="@style/AppTheme.NoActionBar"
+                  android:label="Notification Details"/>
 
         <meta-data
                 android:name="com.google.android.gms.ads.APPLICATION_ID"
                 android:value="@string/admob_app_id"/>
+        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
 
     </application>
 
