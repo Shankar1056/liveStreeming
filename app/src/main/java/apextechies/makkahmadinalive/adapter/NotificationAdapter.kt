@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import apextechies.makkahmadinalive.R
 import apextechies.makkahmadinalive.Util.Config
+import apextechies.makkahmadinalive.Util.Utils
 import apextechies.makkahmadinalive.interfaces.OnItemClickListener
 import apextechies.makkahmadinalive.ui.model.NotificationDataModel
 import java.util.*
@@ -22,10 +23,12 @@ class NotificationAdapter(
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         internal var title: TextView
         internal var notification: TextView
+        internal var notificationDate: TextView
 
         init {
             title = view.findViewById<View>(R.id.title) as TextView
             notification = view.findViewById<View>(R.id.notification) as TextView
+            notificationDate = view.findViewById<View>(R.id.notificationDate) as TextView
         }
     }
 
@@ -41,6 +44,9 @@ class NotificationAdapter(
         if (list.size > 0) {
             holder.title.setText(list[position].category)
             holder.notification.setText(list[position].notification)
+            holder.notificationDate.setText(Utils.GetDateTimeDifference(
+                Utils.getDateFromString(Utils.GetTodaysDate()),
+                Utils.getDateFromString(list[position].date)))
         }
         holder.itemView.setOnClickListener {
             onItemClickListener.onClick(position)

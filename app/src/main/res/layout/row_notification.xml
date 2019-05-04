@@ -13,42 +13,48 @@
             card_view:cardElevation="3dp"
             card_view:cardCornerRadius="4dp"
             card_view:cardUseCompatPadding="true">
-        <android.support.constraint.ConstraintLayout
+        <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp">
 
             <TextView
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginLeft="15dp"
-                    android:text="Title"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="5dp"
                     android:textColor="#000000"
+                    android:singleLine="true"
+                    android:ellipsize="end"
                     android:fontFamily="@font/roboto_mono_bold"
-                    android:textSize="18sp" card_view:fontFamily="@font/roboto_mono_bold"/>
+                    android:textSize="18sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/notificationDate"
+                    card_view:layout_constraintRight_toLeftOf="@+id/notificationDate"/>
+            <TextView
+                    android:id="@+id/notificationDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="13sp"
+                    android:layout_marginRight="5dp"/>
             <TextView
                     android:id="@+id/notification"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    card_view:layout_constraintTop_toBottomOf="@+id/title"
-                    android:layout_marginLeft="15dp"
-                    android:text="Notification"
-                    android:paddingLeft="10dp"
+                    android:layout_below="@+id/title"
                     android:paddingBottom="10dp"
                     android:paddingRight="10dp"
+                    android:paddingTop="10dp"
                     android:textSize="15sp"
                     android:singleLine="true"
                     android:ellipsize="end"
                     android:textColor="#000000"
-            android:fontFamily="@font/roboto_medium"/>
+                    android:fontFamily="@font/roboto_medium"/>
 
-        </android.support.constraint.ConstraintLayout>
+        </RelativeLayout>
 
     </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>
